@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{\textbf{RIGHT NOW THIS IS A COPY OF THE OUTLINE}
+Monitoring Parsl Work Flows}
+\author{Connor Pigg and Dr. Daniel Katz}
+\date{July 2018}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Parsl is a library for crafting work flows.\citep{babuji_yadu_2017_853492}
+Parsl can be used to implicitly parallelize execution.
+The execution graph is derived from the data dependencies between these apps and functions.
+The intent is to give users, especially computational researchers, the tools to efficiently create, execute, and interact with the apps and data that make up their work flows.
+My contributions to this project will be adding the ability to monitor the execution and performance of a work flow in order to confirm, audit, or debug behavior.
+
+\section{Project Goals}
+The purpose of my project is to provide users with the ability to monitor the behavior of their work flows.
+The plan is to create a software solution built using the project's existing tools and/or additional libraries.
+Ideally, the monitoring should provide an abundance of information about the behavior of execution in a clear visual format.
+Specifically, the outline of my research is as follows.
+I will familiarize myself with the project and its team to understand the context and resources that my solution should harmonize with.
+I will explore available additional resources and tools I find or are recommended such as Kibana, Elasticsearch, and psutil.
+Next, I will begin prototyping and iteratively build a solution that incrementally adds features to monitoring.
+Finally, I will assess the solution and prepare a finalized version of the work for the completion of the project.
+
+\section{Background and Significance}
+Work flow software is used by researchers and projects to automate the transition between actions that typically occur in any given process.
+Parsl empowers users to utilize the parallel capabilities of computers through implicit parallelization of these work flows.
+This speeds up the process and reduces human errors in the process.
+These tools also give users the ability to audit, publish, and debug their work flows improving the quality and reproducability of a process.
+To further enable these specific uses of work flow tools, this project will add monitoring to Parsl.
+
+Parsl's decision to include monitoring at such a relatively young age conveys the importance of monitoring to users of such software.
+
+\section{Potential Benefits}
+These monitoring capabilities will improve the user's understanding of the behavior of their work flow.
+This allows the detection of abnormalities, errors, and performance of their work flow.
+This information improves the efficiency at which a user can solve work flow problems and achieve results.
+
+Monitoring should also increase adoption of automated work flows.
+Increased adoption would improve the productivity of these users and empower these users to contribute more to their communities.
+
+\section{Conclusion}
+Parsl is a useful tool for creating, managing, and soon to be monitoring scientific work flows.
+This project will improve Parsl and empower its users as it begins to satisfy the need to observe the behavior of their applications.
+
+I will go through the design process for computational research tools and build a solution for monitoring.
+This project will empower the project with monitoring features and me with a greater knowledge of research work flows and the development process.
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
