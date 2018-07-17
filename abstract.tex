@@ -1,0 +1,8 @@
+As a workflow software, Parsl provides users additional features in addition to the core definition and execution of workflows.
+One useful feature that Parsl lacked was convenient workflow monitoring.
+This project set out to add workflow monitoring to Parsl as to enhance its feature set.
+Simple and comprehensive monitoring of a workflows state and resource usage provides users value by allowing auditing, debugging, and confirmation of workflow execution.
+The paper discusses the components of workflows that are monitored by Parsl, the strategy for capturing these components, and the tools used to accumulate and display these components.
+Primarily, this project used python libraries to collect task status and resource usage and log these tasks to an Elasticsearch database.
+A Kibana dashboard was then created to visualize the collected logs in a real time and interactive UI.
+In the end, the newer versions of Parsl will allow users the option to monitor the status and resource usage of their workflows via an Elasticsearch database and Kibana dashboard.
