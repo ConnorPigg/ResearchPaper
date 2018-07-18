@@ -1,0 +1,13 @@
+The solution was created according to a simple strategy.
+First, from the inside Parsl source log information.
+Second, store these logs to a central location that a user can access.
+Finally, present these logs in a dashboard accessible to a user.
+% should probably cite these tools
+The particular source logging implementation uses the python logging handler CMRESHandler.
+The choice for central log storage was an Elasticsearch instance.
+Finally, a Kibana instance and dashboard was chosen for the UI.
+The benefits of these options are that they allowed simple solution development and provided the core functionality out of the box.
+The downsides of these options are that they are not trivial to distribute to users and can be rigid in the available customizations.
+
+The solution was developed by iteratively adding logging statements to the code and then crafting visuals for the new information.
+This was an efficient way to increase presented information while keeping each addition simple.
