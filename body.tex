@@ -8,6 +8,23 @@ Finally, a Kibana instance and dashboard was chosen for the UI.
 The benefits of these options are that they allowed simple solution development and provided the core functionality out of the box.
 The downsides of these options are that they are not trivial to distribute to users and can be rigid in the available customizations.
 
+Specifically, information of the status and resource usage was generated from the Parsl source code during execution.
+This information was then collected on a central Elasticsearch instance \footnote{Since Elasticsearch is a distributed database, information only needs to be sent to a single node and will be propagated by Elasticsearch itself.}
+This Elasticsearch instance is then exposed to a Kibana instance.
+Kibana hosts the dashboards that present the information to users and are live and interactive.
+Given these instances only require a simple connection, the services may be run from arbitrary systems and only requires a user to have access to the Kibana instance in order to monitor the Parsl workflow.
+
+Kibana and Elasticsearch are full tools in their own right and leave plenty of opportunity for this solution to be expanded by the Parsl team or customized by the users running these services.
+In order to satisfy the majority of users by default, a generic Kibana dashboard template and Elasticsearch "schema" \footnote{Elasticsearch is flexible and does not require a traditional database schema to function. However, to provide smooth interactions with Kibana a "schema" in the form of an index pattern is provided by creating dummy entries that follow the prescribed pattern during the setup process.} is provided for use during the initial setup.
+
+The information and visualizations are not unique and could readily be reproduced using online resources and an understanding of any database and visualization tools.
+The information generation within Parsl is the component of interest.
+Information is primarily collected in two distinct places, by the task scheduler and by the task executioners (workers).
+The scope of the task scheduler includes all information of overall workflow status and handles all scheduling events, during each of these events useful information is packaged into a log that is sent to Elasticsearch.
+This log packaging follows a prescribed pattern in order to smoothly interact with Kibana visualization tools.
+On the task executioner, a new process is spawned that monitors the resource usage of the specific task being ran.
+Again, the information is packaged solely for visualization purposes as Elasticsearch is capable of storing arbitrary and flexible entries.
+
 The solution was developed by iteratively adding logging statements to the code and then crafting visuals for the new information.
 This was an efficient way to increase presented information while keeping each addition simple.
-% To-Do: this section could be expanded a lot to explain how data is collected (where data is generated (the parsl workers), how it is stored (elasticsearch, set up by the run based on a parameter in config with a default?)), how the collected data is analyzed (Kibana pointed to the elasticsearch instance), how the views in Kibana are set (paramaters? Inputs?), what the user actually sees (screenshots), what the user can do to work with the data.
+% To-Do: this section could be expanded a lot to explain how data is collected (where data is generated (the parsl workers), how it is stored (elasticsearch, set up by the run based on a parameter in config with a default?)), how the collected data is analyzed (Kibana pointed to the elasticsearch instance), how the views in Kibana are set (parameters? Inputs?), what the user actually sees (screenshots), what the user can do to work with the data.
